@@ -196,12 +196,15 @@ end
 
 local function god(a)
     if check(a) and a.Character.Humanoid.Health < 1000000000 then
-        local safezone = game.Workspace.Zones:WaitForChild("Part")
-        local old = safezone.CFrame
-        MainRemote:FireServer("Module", "SetCFrame", safezone, CFrame.new(0,10000000,0))
-        game:GetService("ReplicatedStorage").Remotes.DamageHandler:FireServer(a.Character.Humanoid)
-        MainRemote:FireServer("Module", "TakeDamage", a.Character.Humanoid, -math.huge)
-        MainRemote:FireServer("Module", "SetCFrame", safezone, old)
+        for i,v in pairs(game.Workspace.Zones:GetChildren()) do
+            if v.Name == "Part" then
+                local old = v.CFrame
+                MainRemote:FireServer("Module", "SetCFrame", v, CFrame.new(0,10000000,0))
+                game:GetService("ReplicatedStorage").Remotes.DamageHandler:FireServer(a.Character.Humanoid)
+                MainRemote:FireServer("Module", "TakeDamage", a.Character.Humanoid, -math.huge)
+                MainRemote:FireServer("Module", "SetCFrame", v, old)
+            end
+        end
     end
 end
 
