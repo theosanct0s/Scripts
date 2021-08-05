@@ -964,6 +964,12 @@ local function CommandHandler(msg, speaker) -- function to attach you, and admin
             end
         end
         save()
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Moves!";
+            Text = "Unlocked All Moves!";
+            Icon = "rbxassetid://2541869220";
+            Duration = 3;
+        })
     end 
 end
 
