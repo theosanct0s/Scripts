@@ -45,9 +45,8 @@ local namecall
 
 
 newindex = hookfunction(meta.__newindex, function(self, k, new)
-    if tostring(string.lower(k)) == "cframe" and self.IsA(self,"BasePart") and checkcaller() then
+    if tostring(string.lower(k)) == "cframe" and tostring(self.ClassName):find("Part") and checkcaller() then
         MainRemote.FireServer(MainRemote,"Module","SetCFrame",self, new)
-        --return newindex(FakePart,k,new)
     end
     return newindex(self,k,new)
 end)
@@ -1105,6 +1104,7 @@ ALIASES: | :printwhitelists | :whitelists | :printwl | :wllist | :admins |
 :kill others -- Kills everyone else
 :kill all -- Kills everyone
 :kill random -- Kills a random player
+:kill mobs -- Kills all mobs
 ALIASES: | :murder | :erase | :dump | :eliminate | :end | :destroy |
 
 :heal player -- Fully heals player
