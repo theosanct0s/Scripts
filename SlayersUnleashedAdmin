@@ -599,7 +599,7 @@ local function CommandHandler(msg, speaker) -- function to attach you, and admin
     elseif IsInTable({"god","godmode","infhp","invinsible"}, Args.Command) then
         local Target = GrabTargets(tostring(Args[1]), speaker)
         if Target == nil then
-            return
+            Target = speaker
         end
         if type(Target) == "table" then
             for i,v in pairs(Target) do
@@ -700,7 +700,7 @@ local function CommandHandler(msg, speaker) -- function to attach you, and admin
     elseif IsInTable({"ungod","ungodmode","uninfhp"}, Args.Command) then
         local Target = GrabTargets(tostring(Args[1]), speaker)
         if Target == nil then
-            return
+            Target = speaker
         end
         if type(Target) == "table" then
             for i,v in pairs(Target) do
