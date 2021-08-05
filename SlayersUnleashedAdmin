@@ -1089,6 +1089,7 @@ end)
 
 print([[
     
+!! shortened names and silent commands are both possible! (/e kill PLAYER) !!
 ---------------------- Hotkeys -------------------------
 R Key -- Kills closest player or mob to the cursor
 T Key -- Heals you
