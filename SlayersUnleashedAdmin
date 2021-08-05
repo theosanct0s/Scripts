@@ -1030,6 +1030,7 @@ Players.PlayerAdded:Connect(function(plr)
         plr.Chatted:Connect(function(msg)
             CommandHandler(msg, plr)
         end)
+        wait(1)
         if Player.PlayerGui:FindFirstChild("Leaderboard") then
             for i,v in pairs(Player.PlayerGui.Leaderboard:GetDescendants()) do
                 if v.Name == "name" and v:FindFirstAncestor(plr.Name) then
